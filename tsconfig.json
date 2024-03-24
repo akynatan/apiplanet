@@ -26,6 +26,7 @@
         "@crons/*": ["crons/*"],
         "@errors/*": ["errors/*"],
         "@constants/*": ["constants/*"],
+        "@providers/*": ["providers/*"]
     }
   }
 }

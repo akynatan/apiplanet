@@ -7,11 +7,7 @@ import cron from 'node-cron';
 import 'express-async-errors';
 
 import CronUpdateToken from '@crons/CronUpdateToken';
-// import CronClienteReducaoService from '@crons/CronClienteReducaoService';
-// import CronClientesSuspensosService from '@crons/CronClientesSuspensosService';
-// import CronClientesDevedoresService from '@crons/CronClientesDevedoresService';
-// import CronClientesFaturasLateFortyDaysService from '@crons/CronClientesFaturasLateFortyDaysService';
-// import CronClientesFaturasToWinTwoDaysService from '@crons/CronClientesFaturasToWinTwoDaysService';
+import CronReports from '@crons/CronReports';
 
 import AppError from './errors/AppError';
 import routes from './routes';
@@ -39,41 +35,19 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
 
 app.listen(Number(process.env.PORT) || 3333, () => {
   const cronUpdateToken = new CronUpdateToken();
-  // const cronClienteReducao = new CronClienteReducaoService();
-  // const cronClientesSuspensos = new CronClientesSuspensosService();
-  // const cronClientesDevedores = new CronClientesDevedoresService();
-  // const cronClientesFaturasLateFortyDays =
-  //   new CronClientesFaturasLateFortyDaysService();
-  // const cronClientesFaturasToWinTwoDays =
-  //   new CronClientesFaturasToWinTwoDaysService();
+  const cronReports = new CronReports();
 
   cron.schedule('0 0 5,10,15,25,1 * *', () => cronUpdateToken.execute(), {
     timezone: 'America/Sao_Paulo',
   });
 
-  // cron.schedule('0 11 * * 1-5', () => cronClienteReducao.execute(), {
-  //   timezone: 'America/Sao_Paulo',
-  // });
-  // cron.schedule('0 11 * * 1-5', () => cronClientesSuspensos.execute(), {
-  //   timezone: 'America/Sao_Paulo',
-  // });
-  // cron.schedule('0 11 * * 1-5', () => cronClientesDevedores.execute(), {
-  //   timezone: 'America/Sao_Paulo',
-  // });
-  // cron.schedule(
-  //   '0 11 * * 1-5',
-  //   () => cronClientesFaturasLateFortyDays.execute(),
-  //   {
-  //     timezone: 'America/Sao_Paulo',
-  //   },
-  // );
-  // cron.schedule(
-  //   '0 11 * * 1-5',
-  //   () => cronClientesFaturasToWinTwoDays.execute(),
-  //   {
-  //     timezone: 'America/Sao_Paulo',
-  //   },
-  // );
+  cron.schedule('* * * * *', () => cronReports.execute(), {
+    timezone: 'America/Sao_Paulo',
+  });
+
+  // cronReports.execute();
+
+  setTimeout(() => cronReports.execute(), 3000);
 
   console.log(`🚀 Server started on port ${process.env.PORT || 3333}`);
 });
