@@ -41,13 +41,9 @@ app.listen(Number(process.env.PORT) || 3333, () => {
     timezone: 'America/Sao_Paulo',
   });
 
-  cron.schedule('* * * * *', () => cronReports.execute(), {
+  cron.schedule('0 11 * * *', () => cronReports.execute(), {
     timezone: 'America/Sao_Paulo',
   });
-
-  // cronReports.execute();
-
-  setTimeout(() => cronReports.execute(), 3000);
 
   console.log(`🚀 Server started on port ${process.env.PORT || 3333}`);
 });
