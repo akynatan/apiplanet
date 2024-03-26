@@ -1,8 +1,8 @@
 import axios from 'axios';
 import path from 'path';
 import handlebars from 'handlebars';
-import HandlebarsMailTemplateProvider from '@providers/HandlebarsMailTemplateProvider';
 import Reports from '@services/reports';
+import HandlebarsMailTemplateProvider from '../providers/HandlebarsMailTemplateProvider';
 
 class CronReports {
   public async execute(): Promise<void> {
