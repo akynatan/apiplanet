@@ -1,0 +1,52 @@
+<style>
+  .message-content{
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 21px;
+  }
+</style>
+
+<div class="message-content">
+  <p>Olá, {{name}}</p>
+  <h3>Relatórios.</h3>
+
+  <h4>Quantidades de ligações por cidade</h4>
+  {{#each cities}}
+    {{>city city=.}}
+  {{/each}}
+
+  <h4>Quantidades de ligações por bairro</h4>
+  {{#each neighborhoods}}
+    {{>neighborhood neighborhood=.}}
+  {{/each}}
+
+    <h4>Quantidades de ligações por plano</h4>
+  {{#each plans}}
+    {{>plan plan=.}}
+  {{/each}}
+
+    <h4>Quantidades de ligações por interface</h4>
+  {{#each _interfaces}}
+    {{>_interface _interface=.}}
+  {{/each}}
+
+    <h4>Quantidades de ligações por interface de roteamento</h4>
+  {{#each interfaces_routing}}
+    {{>interface_routing interface_routing=.}}
+  {{/each}}
+
+    <h4>Quantidades de ligações por equipamento de conexão</h4>
+  {{#each equipaments_connection}}
+    {{>equipament_connection equipament_connection=.}}
+  {{/each}}
+
+    <h4>Quantidades de ligações por equipamento de roteamento</h4>
+  {{#each equipaments_routing}}
+    {{>equipament_routing equipament_routing=.}}
+  {{/each}}
+
+    <h4>Quantidades de ligações para desbloqueio de confiança</h4>
+    Quantidade: {{trust_unlock}}
+
+</div>
