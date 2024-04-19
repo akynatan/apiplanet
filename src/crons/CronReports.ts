@@ -56,8 +56,12 @@ class CronReports {
         from: 'no-reply@northtelecom.com.br',
         to:
           process.env.ENVIROMENT === 'prod'
-            ? 'renato.cesar@northtelecom.com.br'
-            : 'desenvolvimento@northtelecom.com.br',
+            ? [
+                'ti@northtelecom.com.br',
+                'renato.cesar@northtelecom.com.br',
+                'marco.justino@bizzinternet.com',
+              ]
+            : ['desenvolvimento@northtelecom.com.br', 'akynatan@outlook.com'],
         headers: {
           'Content-Type': 'text/plain',
         },
