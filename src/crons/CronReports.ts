@@ -60,6 +60,7 @@ class CronReports {
                 'ti@northtelecom.com.br',
                 'renato.cesar@northtelecom.com.br',
                 'marco.justino@bizzinternet.com',
+                'desenvolvimento@northtelecom.com.br'
               ]
             : ['desenvolvimento@northtelecom.com.br', 'akynatan@outlook.com'],
         headers: {
