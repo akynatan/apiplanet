@@ -7,6 +7,7 @@ class DesbloqueioDeConfiancaService {
       `integracao/cliente/desbloqueio_confianca`,
       {
         id_cliente_servico: id_client_service_external,
+        dias_desbloqueio: 3,
       },
     );
 
